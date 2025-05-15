@@ -20,10 +20,20 @@ cd test-server
 make build
 ```
 
+To build docker image and push to dockerhub, use:
+```bash
+DOCKER_USER=<dockerhub-username> make release
+```
+
 ### Usage
 
 ```bash
 ./test-server
+```
+
+One can also use pre-built docker image.
+```bash
+docker run -it rahulait/test-server:latest
 ```
 
 The server will start listening on following ports:
