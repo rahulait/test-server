@@ -1,8 +1,8 @@
 # Configurable variables
-APP_NAME := test-server
-VERSION  := latest
-DOCKER_USER := rahulait
-IMAGE_NAME := $(DOCKER_USER)/$(APP_NAME):$(VERSION)
+APP_NAME ?= test-server
+VERSION  ?= latest
+DOCKER_USER ?= rahulait
+IMAGE_NAME ?= $(DOCKER_USER)/$(APP_NAME):$(VERSION)
 
 # Build the Go binary
 build:
