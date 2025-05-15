@@ -40,7 +40,7 @@ func (h HttpServerHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func RunHTTPServerOnPort(port string) {
-	fmt.Println("http server running")
+	fmt.Printf("http server running on port %s\n", port)
 	http.ListenAndServe(port, HttpServerHandler{port})
 }
 
@@ -65,7 +65,7 @@ func RunTCPServerOnPort(port string) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println("tcp server listening")
+	fmt.Printf("tcp server listening on port %s\n", port)
 	for {
 		con, err := ln.Accept()
 		if err != nil {
@@ -126,6 +126,7 @@ func RunUDPServerOnPort(port string) {
 }
 
 func main() {
+	go RunHTTPServerOnPort(":80")
 	go RunHTTPServerOnPort(":8080")
 	go RunHTTPServerOnPort(":8989")
 	go RunHTTPServerOnPort(":9090")

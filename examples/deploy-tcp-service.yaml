@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test-tcp
+  name: test-tcp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: test-tcp
+  template:
+    metadata:
+      labels:
+        app: test-tcp
+    spec:
+      containers:
+      - image: rahulait/test-server:latest
+        name: test
+        ports:
+        - name: tcp-1
+          containerPort: 4343
+          protocol: TCP
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-tcp
+  labels:
+    app: test-tcp
+spec:
+  type: LoadBalancer
+  selector:
+    app: test-tcp
+  ports:
+    - name: tcp-1
+      protocol: TCP
+      port: 4343
+      targetPort: 4343
+  sessionAffinity: None

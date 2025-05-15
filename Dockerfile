@@ -23,7 +23,7 @@ WORKDIR /app
 COPY --from=builder /app/test-server .
 
 # Expose ports (HTTP, TCP, UDP)
-EXPOSE 8080 8989 9090
+EXPOSE 80 8080 8989 9090
 EXPOSE 4343 4545 5656/tcp
 EXPOSE 7070 7272 7474/udp
 
