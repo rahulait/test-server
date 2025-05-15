@@ -1,0 +1,28 @@
+# Binaries
+test-server
+
+# Build output
+*.out
+*.exe
+
+# Dependency directories (if used)
+vendor/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Docker files
+*.tar
+
+# Ignore .env files (if any)
+.env
