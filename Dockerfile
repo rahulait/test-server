@@ -1,17 +1,17 @@
 # Stage 1: Build the Go binary
-FROM golang:1.21-alpine AS builder
+FROM golang:1.24-alpine AS builder
 
 # Set working directory inside container
 WORKDIR /app
 
 # Copy Go module files and source code
-COPY go.mod go.sum ./
+COPY go.mod ./
 RUN go mod download
 
 COPY . .
 
 # Build the Go binary
-RUN go build -o server
+RUN go build -o test-server
 
 # Stage 2: Create a minimal runtime image
 FROM alpine:latest

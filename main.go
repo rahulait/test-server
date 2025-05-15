@@ -102,7 +102,6 @@ func (h UDPServerHandler) ServeUDP(con *net.UDPConn, addr *net.UDPAddr) {
 }
 
 func RunUDPServerOnPort(port string) {
-	// Convert port string to int
 	addr, err := net.ResolveUDPAddr("udp", port)
 	if err != nil {
 		fmt.Println("Failed to resolve UDP addr:", err)
