@@ -40,6 +40,33 @@ The server will start listening on following ports:
 | 7272 | UDP      |
 | 7474 | UDP      |
 
+### Connecting to TCP Port
+```
+echo 1 | nc -w1 <server-ip> <tcp-port>
+
+# Example:
+echo 1 | nc -w1 172.232.174.244 4343
+{"type":"tcp","host":"172.232.174.244:4343","serverPort":":4343"}
+```
+
+### Connecting to HTTP Port
+```
+curl <server-ip>:<http-port>
+
+# Example:
+curl 172.232.174.244:80
+{"type":"http","host":"172.232.174.244","serverPort":":80","path":"/","method":"GET","headers":{"Accept":["*/*"],"User-Agent":["curl/8.5.0"]}}
+```
+
+### Connecting to UDP Port
+```
+echo 1 | nc -u -w1 <server-ip> <udp-port>
+
+# Example:
+echo 1 | nc -u -w1 172.232.174.244 7070
+{"type":"udp","host":"[::]:7070","serverPort":":7070"}
+```
+
 ## Contributing
 
 Contributions are welcome! Please open issues or submit pull requests.
